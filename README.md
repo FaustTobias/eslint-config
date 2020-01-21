@@ -114,6 +114,7 @@ This config requires a tsconfig.json in the root directory of the project as its
     "compilerOptions": {
         "strict": true,
         "target": "ESNext",
+        "module": "CommonJS",
         "moduleResolution": "node",
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true
