@@ -70,6 +70,7 @@ module.exports = {
                     },
                 ],
                 "@typescript-eslint/explicit-member-accessibility": ["error"],
+                "@typescript-eslint/require-await": "off",
             },
         },
     ],
