@@ -2,3 +2,5 @@
 .eslintrc
 .gitignore
 .npmignore
+yarn-error.log
+yarn.lock
