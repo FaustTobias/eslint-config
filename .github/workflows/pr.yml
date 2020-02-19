@@ -14,7 +14,9 @@ jobs:
         with:
           ref: master
 
-      - run: node -e "console.log(`##[set-output name=version;]${JSON.parse(require('fs').readFileSync('package.json').toString()).version}`)"
+      - run: |
+          node -e "console.log(`##[set-output name=version;]${JSON.parse(require('fs').readFileSync('package.json').toString()).version}`)"
+          node -e "console.log(`${JSON.parse(require('fs').readFileSync('package.json').toString()).version}`)"
         id: "master"
 
       - uses: actions/checkout@v2
