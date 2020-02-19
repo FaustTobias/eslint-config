@@ -14,17 +14,20 @@ jobs:
         with:
           ref: master
 
-      - run: |
+      - name: get master version
+        run: |
           node -e "console.log('##[set-output name=version;]' + JSON.parse(require('fs').readFileSync('package.json').toString()).version)"
         id: "master"
 
       - uses: actions/checkout@v2
 
-      - run: |
+      - name: get current version
+        run: |
           node -e "console.log('##[set-output name=version;]' + JSON.parse(require('fs').readFileSync('package.json').toString()).version)"
         id: "current"
 
-      - run: |
+      - name: ensure version is newer
+        run: |
           if [[ $(npx -q semver -r ">${{ steps.master.outputs.version }}" ${{ steps.current.outputs.version }}) ]]; then
               echo "version is newer"
           else
