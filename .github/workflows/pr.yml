@@ -24,4 +24,10 @@ jobs:
           node -e "console.log('##[set-output name=version;]' + JSON.parse(require('fs').readFileSync('package.json').toString()).version)"
         id: "current"
 
-      - run: 'echo "master: ${{ steps.master.outputs.version }}; current: ${{ steps.current.outputs.version }}"'
+      - run: |
+          if [[ $(npx -q semver -r ">${{ steps.master.outputs.version }}" ${{ steps.current.outputs.version }}) ]]; then
+              echo "version is newer"
+          else
+              echo "version is older"
+          fi
+      # - run: 'echo "master: ${{ steps.master.outputs.version }}; current: ${{ steps.current.outputs.version }}"'
