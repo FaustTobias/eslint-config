@@ -28,6 +28,7 @@ jobs:
           if [[ $(npx -q semver -r ">${{ steps.master.outputs.version }}" ${{ steps.current.outputs.version }}) ]]; then
               echo "version is newer"
           else
-              echo "version is older"
+              echo "::error::package version must be newer"
+              exit 1
           fi
       # - run: 'echo "master: ${{ steps.master.outputs.version }}; current: ${{ steps.current.outputs.version }}"'
