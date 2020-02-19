@@ -1,6 +1,6 @@
 {
   "name": "@faustt/eslint-config",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/FaustTobias/eslint-config",
   "repository": "git@github.com:FaustTobias/eslint-config.git",
   "description": "General purpose ECMAScript and TypeScript eslint config",
