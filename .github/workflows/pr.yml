@@ -29,6 +29,5 @@ jobs:
               echo "version is newer"
           else
               echo "::error::package version must be newer"
-              exit 1
           fi
       # - run: 'echo "master: ${{ steps.master.outputs.version }}; current: ${{ steps.current.outputs.version }}"'
