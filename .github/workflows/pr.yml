@@ -40,4 +40,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: npm publish --dry-run
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
