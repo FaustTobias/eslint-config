@@ -40,4 +40,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        run: npm publish --dry-run
+      - run: npm publish --dry-run
