@@ -10,5 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - run: cat package.json
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - run: node -e "console.log(`##[set-output name=version;]${JSON.parse(require('fs').readFileSync('package.json').toString()).version}`)"
+        id: "master"
+
+      - uses: actions/checkout@v2
+
+      - run: node -e "console.log(`##[set-output name=version;]${JSON.parse(require('fs').readFileSync('package.json').toString()).version}`)"
+        id: "current"
+
+      - run: 'echo "master: ${{ steps.master.outputs.version }}; current: ${{ steps.current.outputs.version }}"'
