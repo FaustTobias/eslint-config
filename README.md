@@ -6,6 +6,17 @@
 
 <br>
 
+<p align="center">
+  <a href="https://www.npmjs.com/package/@faustt/eslint-config">
+    <img alt="NPM Version" src="https://img.shields.io/npm/v/@faustt/eslint-config">
+  </a>
+  <a href="https://packagephobia.now.sh/result?p=@faustt/eslint-config">
+    <img alt="Install Size" src="https://badgen.net/packagephobia/install/@faustt/eslint-config">
+  </a>
+</p>
+
+<br>
+
 
 ## Introduction
 
