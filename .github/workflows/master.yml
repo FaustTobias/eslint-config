@@ -1,0 +1,39 @@
+name: master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+
+      - name: get current version
+        run: |
+          node -e "console.log('##[set-output name=version;]' + JSON.parse(require('fs').readFileSync('package.json').toString()).version)"
+        id: "current"
+
+      - run: npm i
+
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+      - uses: actions/github-script@0.5.0
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.repos.createRelease({
+              owner: process.env.GITHUB_REPOSITORY.split("/")[0],
+              repo: process.env.GITHUB_REPOSITORY.split("/")[1],
+              tag_name: "v${{ steps.current.outputs.version }}"
+            })
