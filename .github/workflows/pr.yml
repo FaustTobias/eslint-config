@@ -55,8 +55,11 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            console.log("${{ steps.current.outputs.version }}")
-            console.log(process.env);
+            github.repos.createRelease({
+              owner: process.env.GITHUB_REPOSITORY.split("/")[0],
+              repo: process.env.GITHUB_REPOSITORY.split("/")[1],
+              tag_name: "v${{ steps.current.outputs.version }}"
+            })
       # - run: npm i
       # - run: npm publish
       #   env:
