@@ -1,0 +1,36 @@
+name: pr
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - name: get master version
+        run: |
+          node -e "console.log('##[set-output name=version;]' + JSON.parse(require('fs').readFileSync('package.json').toString()).version)"
+        id: "master"
+
+      - uses: actions/checkout@v2
+
+      - name: get current version
+        run: |
+          node -e "console.log('##[set-output name=version;]' + JSON.parse(require('fs').readFileSync('package.json').toString()).version)"
+        id: "current"
+
+      - name: ensure version is newer
+        run: |
+          if [[ $(npx -q semver -r ">${{ steps.master.outputs.version }}" ${{ steps.current.outputs.version }}) ]]; then
+              echo "version is newer"
+          else
+              echo "::error::package version must be newer"
+              exit 1
+          fi
