@@ -1,9 +1,14 @@
 {
   "name": "@faustt/eslint-config",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "homepage": "https://github.com/FaustTobias/eslint-config",
   "repository": "git@github.com:FaustTobias/eslint-config.git",
   "description": "General purpose ECMAScript and TypeScript eslint config",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "faustt"
+  ],
   "author": "Tobias Faust <tobias@faustnet.de> (https://github.com/FaustTobias)",
   "license": "MIT",
   "main": "index.js",
