@@ -46,14 +46,14 @@ yarn add -D @faustt/eslint-config
 using npm:
 
 ```
-npm i -D @typescript-eslint/eslint-plugin@^2.17.0 @typescript-eslint/parser@^2.17.0 eslint@^6.8.0 eslint-config-prettier@^6.9.0 eslint-plugin-prettier@^3.1.2 prettier@^1.19.1 typescript@^3.7.5
+npm i -D @typescript-eslint/eslint-plugin@2.x @typescript-eslint/parser@2.x eslint@6.x eslint-config-prettier@6.x eslint-plugin-prettier@3.x prettier@2.x typescript
 ```
 
 
 or using yarn:
 
 ```
-yarn add -D @typescript-eslint/eslint-plugin@^2.17.0 @typescript-eslint/parser@^2.17.0 eslint@^6.8.0 eslint-config-prettier@^6.9.0 eslint-plugin-prettier@^3.1.2 prettier@^1.19.1 typescript@^3.7.5
+yarn add -D @typescript-eslint/eslint-plugin@2.x @typescript-eslint/parser@2.x eslint@6.x eslint-config-prettier@6.x eslint-plugin-prettier@3.x prettier@2.x typescript
 ```
 
 
